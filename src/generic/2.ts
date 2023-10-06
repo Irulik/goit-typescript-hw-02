@@ -11,14 +11,15 @@ type AllType = {
   weight: number
 }
 
-function compare<T extends AllType, U extends AllType>(top: T, bottom: U): AllType {
+function compare<T extends AllType, U extends AllType>(top: Pick<T, keyof AllType>, bottom: Pick<U, keyof AllType>): AllType {
   return {
     name: top.name,
     color: top.color,
     position: bottom.position,
     weight: bottom.weight,
-  }
+  };
 }
+
 
 // Приклад використання функції compare:
 const obj1 = {
